@@ -15,7 +15,6 @@ jobs:
     name: meu-primeiro-job
     runs-on: ubuntu-latest
 
-    # Coloque seu RA e seu Nome aqui:
     env:
       RA: "6324300"
       NOME: "Davi Campoi"
