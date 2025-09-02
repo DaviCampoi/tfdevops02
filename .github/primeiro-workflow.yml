@@ -1,0 +1,36 @@
+name: "01 - Nosso Primeiro Workflow"
+
+on:
+  push:
+    branches:
+      - main
+    # Ignora execuções quando o push alterar SOMENTE arquivos README
+    # (se houver qualquer outro arquivo no commit, o workflow roda)
+    paths-ignore:
+      - '**/README.md'
+      - '**/README.MD'
+
+jobs:
+  build:
+    name: meu-primeiro-job
+    runs-on: ubuntu-latest
+
+    # Coloque seu RA e seu Nome aqui:
+    env:
+      RA: "6324300"
+      NOME: "Davi Campoi"
+
+    steps:
+      - name: Exibe RA - Nome
+        run: |
+          echo "RA - Nome: $RA - $NOME"
+          echo "Deve Aparecer seu Nome e RA aqui"
+
+      - name: Mostra o diretório de trabalho
+        run: pwd
+
+      - name: Imprime o nome do repositório
+        run: |
+          echo "Owner/Repo via contexto: ${{ github.repository }}"
+          echo "Owner/Repo via env: $GITHUB_REPOSITORY"
+          echo "Apenas o nome do repositório: ${{ github.event.repository.name }}"
